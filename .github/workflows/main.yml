@@ -1,0 +1,25 @@
+name: Master Cypress Trigger test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cypress E2E Workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: "cypress1.yml"
+          token: ${{ secrets.PAT_TOKEN }}
+
+  trigger-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cypress Smoke Workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: "cypress2.yml"
+          token: ${{ secrets.PAT_TOKEN }}
