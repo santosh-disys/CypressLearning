@@ -103,6 +103,8 @@ describe('example to-do app', () => {
         .first()
         .should('have.text', 'Walk the dog')
 
+        console.log("Testing check");
+
       // For good measure, let's also assert that the task we checked off
       // does not exist on the page.
       cy.contains('Pay electric bill').should('not.exist')
